@@ -24,7 +24,7 @@ class PacienteRepository {
     // editar uma paciente por id 
     update(id, dadosAtualizados) {
         const index = db.pacientes.findIndex(paciente => paciente.id === parseInt(id));
-        db.pacientes[index] = {...decodeURI.pacientes[index], dadosAtualizados};
+        db.pacientes[index] = {...db.pacientes[index], ...dadosAtualizados};
         return dadosAtualizados;
     }
 

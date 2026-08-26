@@ -25,7 +25,7 @@ class MedicoRepository {
     update(id, dadosAtualizados) {
         const index = db.medicos.findIndex(medico => medico.id === parseInt(id));
 
-        db.medicos[index] = { ...db.medicos[index], dadosAtualizados };
+        db.medicos[index] = { ...db.medicos[index], ...dadosAtualizados };
         return db.medicos[index];
     }
 

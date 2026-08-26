@@ -24,7 +24,7 @@ class ConsultaRepository {
     // editar uma consulta por id 
     update(id, dadosAtualizados) {
         const index = db.consultas.findIndex(consulta => consulta.id === parseInt(id));
-        db.consultas[index] = {...decodeURI.consultas[index], dadosAtualizados};
+        db.consultas[index] = {...db.consultas[index], ...dadosAtualizados};
         return dadosAtualizados;
     }
 
