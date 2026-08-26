@@ -16,7 +16,7 @@ class PacienteRepository {
 
     // cadastra nova paciente
     create(paciente) {
-        const novoPaciente = { id: Date.now(), paciente };
+        const novoPaciente = { id: Date.now(), ...paciente };
         db.pacientes.push(novoPaciente);
         return novoPaciente;
     }

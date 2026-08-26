@@ -16,7 +16,7 @@ class ConsultaRepository {
 
     // cadastra nova consulta
     create(consulta) {
-        const novaConsulta = { id: Date.now(), consulta };
+        const novaConsulta = { id: Date.now(), ...consulta };
         db.consultas.push(novaConsulta);
         return novaConsulta;
     }
