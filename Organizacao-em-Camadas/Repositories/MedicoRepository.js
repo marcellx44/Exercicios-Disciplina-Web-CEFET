@@ -11,19 +11,19 @@ class MedicoRepository {
 
     // buscar médico por id 
     findById(id) {
-        return db.medicos.find(medico => medico.id === parseInt(id));
+        return db.medicos.find(medico => medico.medicoId === parseInt(id));
     }
 
     // cadastra um novo médico 
     create(medico) {
-        const novoMedico = { id: Date.now(), ...medico };
+        const novoMedico = { medicoId: Date.now(), ...medico };
         db.medicos.push(novoMedico);
         return novoMedico;
     }
 
     // atualizar dados do médico 
     update(id, dadosAtualizados) {
-        const index = db.medicos.findIndex(medico => medico.id === parseInt(id));
+        const index = db.medicos.findIndex(medico => medico.medicoId === parseInt(id));
 
         if (index === -1) {
             return null;
@@ -35,7 +35,7 @@ class MedicoRepository {
 
     // remove médico 
     delete(id) {
-        const index = db.medicos.findIndex(medico => medico.id === parseInt(id));
+        const index = db.medicos.findIndex(medico => medico.medicoId === parseInt(id));
 
         if (index === -1) {
             return null;
