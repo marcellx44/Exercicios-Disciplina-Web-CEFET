@@ -13,8 +13,9 @@ class MedicoController {
         const { id } = req.params;
         const medico = MedicoService.buscarPorId(id);
         if (!medico) {
-            res.status(400).json({ error: "Aluno não encontrado." })
+            res.status(400).json({ error: "Medico não encontrado." })
         }
+        res.status(200).json(medico);
     }
 
     // cadastrar um médico 
