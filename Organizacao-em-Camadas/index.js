@@ -1,11 +1,10 @@
 const express = require('express');
 const app = express(); 
 const port = 3000;
-import db from './db.js';
-const routes = require('./Router/routes.js');
+const router = require('./Router/routers');
 
 app.use(express.json());
-app.use('/api', routes);
+app.use('/api', router);
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
