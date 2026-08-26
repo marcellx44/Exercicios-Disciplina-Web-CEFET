@@ -18,7 +18,7 @@ class PacienteService {
             throw new Error('Paciente não encontrado');
         }
 
-        const consultas = ConsultaRepository.findAll().filter(c => c.pacienteId === id);
+        const consultas = ConsultaRepository.findAll().filter(c => c.pacienteId === parseInt(id));
 
         return {
             ...paciente,
