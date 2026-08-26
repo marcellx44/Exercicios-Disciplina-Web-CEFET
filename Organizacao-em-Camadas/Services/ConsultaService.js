@@ -13,9 +13,9 @@ class ConsultaService {
     criarConsulta(dados) {
         const consultas = ConsultaRepository.findAll();
 
-        const horarioOcupado = consultas.some( consulta => consulta.medicoId === dados.medicoId && consulta.data === dados.data);
+        const horarioOcupado = consultas.some(consulta => consulta.medicoId === dados.medicoId && consulta.data === dados.data);
 
-        if(horarioOcupado){
+        if (horarioOcupado) {
             throw new Error('O médico já possui uma consulta marcada nesse horário');
         }
 
@@ -24,6 +24,10 @@ class ConsultaService {
 
     atualizarConsulta(id, dadosAtualizados) {
         return ConsultaRepository.update(id, dadosAtualizados);
+    }
+
+    atualizarParcial(id, dadosParciais) {
+        return ConsultaRepository.update(id, dadosParciais);
     }
 
     removerConsulta(id) {
