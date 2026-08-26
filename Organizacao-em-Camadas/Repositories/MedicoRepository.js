@@ -37,4 +37,4 @@ class MedicoRepository {
     }
 }
 
-module.export = new MedicoRepository();
+module.exports = new MedicoRepository();

@@ -35,4 +35,4 @@ class PacienteRepository {
     }
 }
 
-module.export = new PacienteRepository();
+module.exports = new PacienteRepository();
