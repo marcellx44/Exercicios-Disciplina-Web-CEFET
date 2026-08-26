@@ -24,13 +24,23 @@ class ConsultaRepository {
     // editar uma consulta por id 
     update(id, dadosAtualizados) {
         const index = db.consultas.findIndex(consulta => consulta.id === parseInt(id));
-        db.consultas[index] = {...db.consultas[index], ...dadosAtualizados};
+
+        if (index === -1) {
+            return null;
+        }
+
+        db.consultas[index] = { ...db.consultas[index], ...dadosAtualizados };
         return dadosAtualizados;
     }
 
     // deletar consulta por id 
     delete(id) {
         const index = db.consultas.findIndex(consulta => consulta.id === parseInt(id));
+
+        if (index === -1) {
+            return null;
+        }
+
         db.consultas.splice(index, 1);
     }
 }

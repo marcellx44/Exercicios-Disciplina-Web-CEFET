@@ -24,13 +24,23 @@ class PacienteRepository {
     // editar uma paciente por id 
     update(id, dadosAtualizados) {
         const index = db.pacientes.findIndex(paciente => paciente.id === parseInt(id));
-        db.pacientes[index] = {...db.pacientes[index], ...dadosAtualizados};
+
+        if (index === -1) {
+            return null;
+        }
+
+        db.pacientes[index] = { ...db.pacientes[index], ...dadosAtualizados };
         return dadosAtualizados;
     }
 
     // deletar paciente por id 
     delete(id) {
         const index = db.pacientes.findIndex(paciente => paciente.id === parseInt(id));
+
+        if (index === -1) {
+            return null;
+        }
+
         db.pacientes.splice(index, 1);
     }
 }

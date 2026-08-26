@@ -25,6 +25,10 @@ class MedicoRepository {
     update(id, dadosAtualizados) {
         const index = db.medicos.findIndex(medico => medico.id === parseInt(id));
 
+        if (index === -1) {
+            return null;
+        }
+
         db.medicos[index] = { ...db.medicos[index], ...dadosAtualizados };
         return db.medicos[index];
     }
@@ -32,6 +36,10 @@ class MedicoRepository {
     // remove médico 
     delete(id) {
         const index = db.medicos.findIndex(medico => medico.id === parseInt(id));
+
+        if (index === -1) {
+            return null;
+        }
 
         db.medicos.splice(index, 1);
     }
