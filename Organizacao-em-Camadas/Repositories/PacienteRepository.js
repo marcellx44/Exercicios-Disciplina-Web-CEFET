@@ -34,3 +34,5 @@ class PacienteRepository {
         db.pacientes.splice(index, 1);
     }
 }
+
+module.export = new PacienteRepository();

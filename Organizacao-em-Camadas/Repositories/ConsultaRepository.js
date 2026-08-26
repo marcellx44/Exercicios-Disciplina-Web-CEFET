@@ -34,3 +34,5 @@ class ConsultaRepository {
         db.consultas.splice(index, 1);
     }
 }
+
+module.exports = new ConsultaRepository();

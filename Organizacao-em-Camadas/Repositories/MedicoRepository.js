@@ -36,3 +36,5 @@ class MedicoRepository {
         db.medicos.splice(index, 1);
     }
 }
+
+module.export = new MedicoRepository();
