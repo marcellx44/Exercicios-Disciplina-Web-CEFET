@@ -11,19 +11,19 @@ class PacienteRepository {
 
     // buscar paciente por id
     findById(id) {
-        return db.pacientes.find(paciente => paciente.id === parseInt(id));
+        return db.pacientes.find(paciente => paciente.pacienteId === parseInt(id));
     }
 
     // cadastra nova paciente
     create(paciente) {
-        const novoPaciente = { id: Date.now(), ...paciente };
+        const novoPaciente = { pacienteId: Date.now(), ...paciente };
         db.pacientes.push(novoPaciente);
         return novoPaciente;
     }
 
     // editar uma paciente por id 
     update(id, dadosAtualizados) {
-        const index = db.pacientes.findIndex(paciente => paciente.id === parseInt(id));
+        const index = db.pacientes.findIndex(paciente => paciente.pacienteId === parseInt(id));
 
         if (index === -1) {
             return null;
@@ -35,7 +35,7 @@ class PacienteRepository {
 
     // deletar paciente por id 
     delete(id) {
-        const index = db.pacientes.findIndex(paciente => paciente.id === parseInt(id));
+        const index = db.pacientes.findIndex(paciente => paciente.pacienteId === parseInt(id));
 
         if (index === -1) {
             return null;
